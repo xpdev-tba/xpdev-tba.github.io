@@ -5,9 +5,10 @@
     <title>InstitucionalCotizadorFrontMobile</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1"><meta name="institucional-cotizador-front-mobile/config/environment" content="%7B%22modulePrefix%22%3A%22institucional-cotizador-front-mobile%22%2C%22namespace%22%3A%22api/mobile%22%2C%22environment%22%3A%22development%22%2C%22rootURL%22%3A%22/%22%2C%22host%22%3A%22%22%2C%22locationType%22%3A%22auto%22%2C%22moment%22%3A%7B%22includeLocales%22%3A%5B%22pt-br%22%5D%2C%22allowEmpty%22%3Atrue%7D%2C%22googleFonts%22%3A%5B%22Roboto%3A300%22%5D%2C%22contentSecurityPolicy%22%3A%7B%22font-src%22%3A%22%27self%27%20fonts.gstatic.com%22%2C%22style-src%22%3A%22%27self%27%20fonts.googleapis.com%22%7D%2C%22EmberENV%22%3A%7B%22FEATURES%22%3A%7B%7D%2C%22EXTEND_PROTOTYPES%22%3A%7B%22Date%22%3Afalse%7D%7D%2C%22APP%22%3A%7B%22name%22%3A%22institucional-cotizador-front-mobile%22%2C%22version%22%3A%220.0.0+a0f46282%22%7D%2C%22ember-cli-mirage%22%3A%7B%22enabled%22%3Atrue%2C%22usingProxy%22%3Afalse%2C%22useDefaultPassthroughs%22%3Atrue%7D%2C%22exportApplicationGlobal%22%3Atrue%7D">
-    <link rel="stylesheet" href="./InstitucionalCotizadorFrontMobile_files/vendor.css">
-    <link rel="stylesheet" href="./InstitucionalCotizadorFrontMobile_files/institucional-cotizador-front-mobile.css">
+    <link rel="stylesheet" href="http://downloads.xpi.com.br/mobile/android/cotizador/InstitucionalCotizadorFrontMobile_files/vendor.css">
+    <link rel="stylesheet" href="http://downloads.xpi.com.br/mobile/android/cotizador/InstitucionalCotizadorFrontMobile_files/institucional-cotizador-front-mobile.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	
   </head>
   <body class="ember-application">
 <div id="ember344" class="ember-view"><div class="container ip-container-background">
@@ -48,7 +49,7 @@
                     <span class="h6"><b>Selecione o total de estruturas:</b></span>
                   </div>
                   <div class="col-xs-4 col-sm-4 no-padding-right">
-                    <input type="number" name="txtQtd" step="1" id="txtQtd" class="numeric ember-text-field ember-view">
+                    <input type="number" onchange="changeQtd()" name="txtQtd" step="1" id="txtQtd" class="numeric ember-text-field ember-view">
                   </div>
                   <div class="col-xs-8 col-sm-8">
                     <span class="h6" id="txtCustodia" name="txtCustodia"></span>
@@ -58,10 +59,10 @@
             </div>
 
               <div class="col col-xs-6 col-sm-6 padding-left-right-5">
-                <span class="h6 color-gray">Lucro máximo</span>
+                <span class="h6 color-gray">Custo da estrutura</span>
               </div>
               <div class="col col-xs-6 col-sm-6 padding-left-right-5">
-                <span class="h6 color-gray">Custo da operação</span>
+                <span class="h6 color-gray">Custo Total</span>
               </div>
               <div class="col col-xs-6 col-sm-6 padding-left-right-5">
                 <div class="h6 color-gray">
@@ -138,21 +139,23 @@
 	  
     </div>
   </div>
-  <div class="col col-sm-12 box-button no-padding">
- <button id="bt_reject" onclick="Interaction('refused')" class="btn btn-red border-left-term">NÃO ME INTERESSA</button>
-<button id="bt_confirm" onclick="Interaction('approved')" class="btn btn-blue border-left-term">SOLICITAR OPERAÇÃO</button>
-  </div>
+  
   <br><br>
-<input type="hidden" name="txtReq" id="txtReq" value="">
+<input type="text" name="txtReq" id="txtReq" value="">
 <input type="hidden" name="txtInteractiveOperationId" id="txtInteractiveOperationId" value="">
 <input type="hidden" name="txtOperationId" id="txtOperationId" value="">
 <input type="hidden" name="txtOrderId" id="txtOrderId" value="">
 <input type="hidden" name="txtAccount" id="txtAccount" value="">
-	
+ 
+ <div id="footer" style="padding-top:10px" class="col col-sm-12 box-button navbar navbar-inverse navbar-fixed-bottom border-none margin-top-md">
+	 <button id="bt_reject" onclick="Interaction('refused')" class="btn btn-red border-left-term">NÃO ME INTERESSA</button>
+	<button id="bt_confirm" onclick="Interaction('approved')" class="btn btn-blue border-left-term">SOLICITAR OPERAÇÃO</button>
+  </div>
       
 </div>
 <!---->
 <script>
+	
 	var map={"â":"a","Â":"A","à":"a","À":"A","á":"a","Á":"A","ã":"a","Ã":"A","ê":"e","Ê":"E","è":"e","È":"E","é":"e","É":"E","î":"i","Î":"I","ì":"i","Ì":"I","í":"i","Í":"I","õ":"o","Õ":"O","ô":"o","Ô":"O","ò":"o","Ò":"O","ó":"o","Ó":"O","ü":"u","Ü":"U","û":"u","Û":"U","ú":"u","Ú":"U","ù":"u","Ù":"U","ç":"c","Ç":"C"};
 
 	function removerAcentos(s){ return s.replace(/[\W\[\] ]/g,function(a){return map[a]||a}) };
@@ -169,7 +172,10 @@
 		
         document.location = "app://?state=" + state + "&edited=true&data=" + data;
     }
-	
+	function changeQtd(){
+		var qtd = document.getElementById("txtQtd");
+		$("#txtPrice").text(($("#txtGainMax").text() * qtd.value).toFixed(2));
+	}
 	function UpdateValues(values) {
 		//$("#divObsInt").html($("#divObsInt").html()+"; Recebendo UpdateValues");
 		var json = JSON.parse(values);		
@@ -188,9 +194,8 @@
 		$("#txtOrderId").val(json["OrderId"]);
 		$("#txtAccount").val(json["Account"]);
 		$("#txtReq").val(values);
-		$("#txtPrice").text(json["ClientCost"]);
+		$("#txtGainMax").text(json["ClientCost"]);
 		$("#txtAsset").text(json["Asset"]);
-		$("#txtGainMax").text(json["MaxGain"]);
 		$("#txtVencimento").text(json["MaturityDate"]);
 		$("#divObs").html(json["Text"]); 
 		$("#txtCustodia").text('(Custódia '+json["Custody"]+')');
@@ -199,6 +204,7 @@
 		
 		var qtd = document.getElementById("txtQtd");
 		qtd.value = json["Quantity"];
+		$("#txtPrice").text(json["ClientCost"] * json["Quantity"]);
 
 		//$("#divObsInt").html($("#divObsInt").html()+"; Carregando ExtraValues");
 		var extravalues = [];
