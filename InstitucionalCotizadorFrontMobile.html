@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<!-- saved from url=(0033)http://localhost:4200/orders/3212 -->
+<html data-ember-extension="1"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>InstitucionalCotizadorFrontMobile</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><meta name="institucional-cotizador-front-mobile/config/environment" content="%7B%22modulePrefix%22%3A%22institucional-cotizador-front-mobile%22%2C%22namespace%22%3A%22api/mobile%22%2C%22environment%22%3A%22development%22%2C%22rootURL%22%3A%22/%22%2C%22host%22%3A%22%22%2C%22locationType%22%3A%22auto%22%2C%22moment%22%3A%7B%22includeLocales%22%3A%5B%22pt-br%22%5D%2C%22allowEmpty%22%3Atrue%7D%2C%22googleFonts%22%3A%5B%22Roboto%3A300%22%5D%2C%22contentSecurityPolicy%22%3A%7B%22font-src%22%3A%22%27self%27%20fonts.gstatic.com%22%2C%22style-src%22%3A%22%27self%27%20fonts.googleapis.com%22%7D%2C%22EmberENV%22%3A%7B%22FEATURES%22%3A%7B%7D%2C%22EXTEND_PROTOTYPES%22%3A%7B%22Date%22%3Afalse%7D%7D%2C%22APP%22%3A%7B%22name%22%3A%22institucional-cotizador-front-mobile%22%2C%22version%22%3A%220.0.0+a0f46282%22%7D%2C%22ember-cli-mirage%22%3A%7B%22enabled%22%3Atrue%2C%22usingProxy%22%3Afalse%2C%22useDefaultPassthroughs%22%3Atrue%7D%2C%22exportApplicationGlobal%22%3Atrue%7D">
+    <link rel="stylesheet" href="http://downloads.xpi.com.br/mobile/android/cotizador/InstitucionalCotizadorFrontMobile_files/vendor.css">
+    <link rel="stylesheet" href="http://downloads.xpi.com.br/mobile/android/cotizador/InstitucionalCotizadorFrontMobile_files/institucional-cotizador-front-mobile.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head>
+  <body class="ember-application">
+<div id="ember344" class="ember-view"><div class="container ip-container-background">
+  <div class="row">
+    <div class="col col-xs-12 col-sm-6  ">
+      <div class="row padding-down">
+        <div class="col col-xs-12 col-sm-12 ">
+          <span class="h5"> Estratégia de proteção em <b><span id="txtAsset" name="txtAsset"></b> | </span>
+          <span class="h6"> Vencimento <span id="txtVencimento" name="txtVencimento"></span>
+        </div>
+      </div>
+
+      <div class="ip-container-col-term-graph">
+        <div id="divsvg" class="row-fluid ip-container-row-graphic-left border-none">
+          <svg class="strike-lg" xmlns="http://www.w3.org/2000/svg" width="300" height="250"><svg class="preview-svg-area" width="300" height="250"><g class="preview-color-zones"><path class="preview-red-zone" fill="#f8dcd8" d="M15 15h221.841v220H15z"></path><path class="preview-green-zone" fill="#eff3da" d="M236.841 15H285v220h-48.159z"></path></g><path class="preview-x preview-axis domain" d="M15 163.667v-2h270v2"></path><path class="preview-y preview-axis domain" d="M13 15h2v220h-2"></path><rect class="preview-svg-line" y="10" width="300"></rect><path class="preview-vertical-line-wrapper preview-vertical-yellow-line" d="M56.5 235V34.556" stroke="#FFC107" stroke-width="3" fill="none" stroke-dasharray="4,4"></path><g class="preview-asset-value no-selection"><path class="preview-vertical-gray-line" d="M56.5 235V34.556"></path><rect x="31.499" y="20" rx="1" ry="1" width="50" height="20" class="preview-strike-vertical-rect" fill="#FFC107"></rect><text x="56.499" y="35" class="preview-strike-vertical-number" style="vertical-align:middle" font-family="sans-serif" font-size="14" fill="black-light" font-weight="700" text-anchor="middle">16.17</text></g><path class="preview-strategy-line" d="M15 210.556h173.681L285 112.778" stroke="#FFC107" stroke-width="3" fill="none"></path><g class="preview-points"><circle cx="188.681" cy="210.556" r="8" class="preview-strike-points" fill="#4B4B4B" stroke="#000"></circle><text x="188.681" y="214.556" fill="#fff" font-family="sans-serif" font-size="12" text-anchor="middle">A</text></g><path class="preview-numbers-rect preview-strike-number-rect" stroke="#FFC107" stroke-width="1.5" fill="#fff" d="M172.681 177.556v18h13l3 3 3-3h13v-18z"></path><text x="188.681" y="190.556" class="preview-numbers preview-strike-number preview-no-selection" fill="black-light" font-family="sans-serif" font-size="11" text-anchor="middle">18.75</text></svg></svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="col col-xs-12 col-sm-6  ">
+
+      <label class="ip-label-grid1 h5">Resumo</label><br>
+
+        <div class="row row-eq-height">
+          <div class="col-xs-4 bg-box-white">
+
+            <div id="divExtraValues" class="ip-container-col-term">
+
+
+            </div>
+          </div>
+
+          <div class="col-xs-8 bg-box-white margin-left-1">
+            <div class="bg-gray-dark color-white">
+              <div class="">
+                <div class="row">
+                  <div class="col-xs-12  col-sm-12">
+                    <span class="h6"><b>Selecione o total de estruturas:</b></span>
+                  </div>
+                  <div class="col-xs-4 col-sm-4 no-padding-right">
+                    <input type="number" name="txtQtd" step="1" id="txtQtd" class="numeric ember-text-field ember-view">
+                  </div>
+                  <div class="col-xs-8 col-sm-8">
+                    <span class="h6" id="txtCustodia" name="txtCustodia"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+              <div class="col col-xs-6 col-sm-6 padding-left-right-5">
+                <span class="h6 color-gray">Lucro máximo</span>
+              </div>
+              <div class="col col-xs-6 col-sm-6 padding-left-right-5">
+                <span class="h6 color-gray">Custo da operação</span>
+              </div>
+              <div class="col col-xs-6 col-sm-6 padding-left-right-5">
+                <div class="h6 color-gray">
+                  <h5 class="price-box"> R$ <span id="txtGainMax" name="txtGainMax"></h5>
+                </div>
+              </div>
+              <div class="col col-xs-6 col-sm-6 padding-left-right-5">
+                <div class="h6 color-gray">
+                  <h5 class="price-box"> R$ <span id="txtPrice" name="txtPrice"></h5>
+                </div>
+              </div>
+
+              <div class="col col-xs-12  col-sm-12 padding-8">
+                <hr class="bb-gray">
+                <div class="title-interactive-2">
+                  Lista de opções negociadas
+                </div>
+
+
+                <div class="item-interactive-resum box-interactive border-gray">
+
+                  <div id="divEstruturaCompra" class="col-xs-6">
+                    <div class="title-interactive-3">
+                      Compra
+                    </div>                      
+                  </div>
+
+                  <div class="col-xs-6 bl-gray">
+                    <div id="divEstruturaVenda" class="padding-down">
+                      <div class="title-interactive-3">
+                        Venda
+                      </div>					  
+					</div>
+                  </div>
+                </div>
+
+              </div>
+          </div>
+
+        </div>
+
+    </div>
+
+  </div>
+
+  <div class="clearfix"></div>
+  <div class="clearfix h35"></div>
+
+  <div class="row-fluid col-sm-12 no-padding">
+    <div id="divObservation" class="col-sm-6 ip-container-col-term ptb-15 term-box ">
+      <div class="title-term">Observação</div>
+      <div id="divObs" class="h5">        
+      </div>
+	  
+    </div>
+	<div id="divObjective" class="col-sm-6 ip-container-col-term ptb-15 term-box ">
+      <div class="title-term">Objetivo</div>
+      <div id="divObjetivo" class="h5">        
+      </div>
+	  
+    </div>
+  </div>
+  <div id="divTradeIdea" class="row-fluid col-sm-12 no-padding">
+    <div class="col-sm-6 ip-container-col-term ptb-15 term-box ">
+      <div class="title-term">Operação</div>
+      <div id="divOperacao" class="h5">        
+      </div>
+	  
+    </div>
+	<div class="col-sm-6 ip-container-col-term ptb-15 term-box ">
+      <div class="title-term">Por que comprar a estrutura?</div>
+      <div id="divMessgeAnalyst" class="h5">        
+      </div>
+	  
+    </div>
+  </div>
+  <div class="col col-sm-12 box-button no-padding">
+ <button id="bt_reject" onclick="Interaction('refused')" class="btn btn-red border-left-term">NÃO ME INTERESSA</button>
+<button id="bt_confirm" onclick="Interaction('approved')" class="btn btn-blue border-left-term">SOLICITAR OPERAÇÃO</button>
+  </div>
+  <br><br>
+<input type="hidden" name="txtReq" id="txtReq" value="">
+<input type="hidden" name="txtInteractiveOperationId" id="txtInteractiveOperationId" value="">
+<input type="hidden" name="txtOperationId" id="txtOperationId" value="">
+<input type="hidden" name="txtOrderId" id="txtOrderId" value="">
+<input type="hidden" name="txtAccount" id="txtAccount" value="">
+	
+      
+</div>
+<!---->
+<script>
+	var map={"â":"a","Â":"A","à":"a","À":"A","á":"a","Á":"A","ã":"a","Ã":"A","ê":"e","Ê":"E","è":"e","È":"E","é":"e","É":"E","î":"i","Î":"I","ì":"i","Ì":"I","í":"i","Í":"I","õ":"o","Õ":"O","ô":"o","Ô":"O","ò":"o","Ò":"O","ó":"o","Ó":"O","ü":"u","Ü":"U","û":"u","Û":"U","ú":"u","Ú":"U","ù":"u","Ù":"U","ç":"c","Ç":"C"};
+
+	function removerAcentos(s){ return s.replace(/[\W\[\] ]/g,function(a){return map[a]||a}) };
+    function Interaction(state) {
+	
+		var req = $("#txtReq").val();
+		var interactiveOperationId = $("#txtInteractiveOperationId").val();
+		var operationId = $("#txtOperationId").val();
+		var orderId = $("#txtOrderId").val();
+		var account = $("#txtAccount").val();
+		var qtd = document.getElementById("txtQtd");
+		
+		var data = "{\"HashCode\":" + 1 + ",\"InteractiveOperationId\":" + interactiveOperationId + ",\"OperationId\":" + operationId + ",\"OrderId\":" + orderId + ",\"Account\":" + account + ",\"AcceptedQuantity\":" + qtd.value + ",\"DeviceAddress\":1}";
+		
+        document.location = "app://?state=" + state + "&edited=true&data=" + data;
+    }
+	
+	function UpdateValues(values) {
+		//$("#divObsInt").html($("#divObsInt").html()+"; Recebendo UpdateValues");
+		var json = JSON.parse(values);		
+		$.ajax({
+		  type:     "GET",
+		  url:      json["ImagePath"],
+		  dataType: "html",
+		  success: function(data){
+			console.log(data);
+			$("#divsvg").html(data);
+		  }
+		});		
+		//$("#divObsInt").html($("#divObsInt").html()+"; IMG: "+json["ImagePath"]);
+		$("#txtInteractiveOperationId").val(json["InteractiveOperationId"]);
+		$("#txtOperationId").val(json["OperationId"]);
+		$("#txtOrderId").val(json["OrderId"]);
+		$("#txtAccount").val(json["Account"]);
+		$("#txtReq").val(values);
+		$("#txtPrice").text(json["ClientCost"]);
+		$("#txtAsset").text(json["Asset"]);
+		$("#txtGainMax").text(json["MaxGain"]);
+		$("#txtVencimento").text(json["MaturityDate"]);
+		$("#divObs").html(json["Text"]); 
+		$("#txtCustodia").text('(Custódia '+json["Custody"]+')');
+		
+		
+		
+		var qtd = document.getElementById("txtQtd");
+		qtd.value = json["Quantity"];
+
+		//$("#divObsInt").html($("#divObsInt").html()+"; Carregando ExtraValues");
+		var extravalues = [];
+		$.each(json["ExtraValues"],function(index, value){
+			extravalues.push('<div class="item-interactive"><div class="title-interactive">'+value.Header+'</div><div class="row-fluid"><div class="col-xs-6 no-padding"><svg class="icon-interactive" width="70.287" height="57.012" viewBox="0 0 77.651 59.542"><path fill="#999" d="M77.585 12.9a2.286 2.286 0 0 0-2.283-2.283H58.348a2.286 2.286 0 0 0-2.283 2.283v10.941a2.286 2.286 0 0 0 2.283 2.283h16.954a2.286 2.286 0 0 0 2.283-2.283V12.9zm-2.164 10.09a.972.972 0 0 1-.971.971H59.2a.973.973 0 0 1-.972-.971v-9.238c0-.535.437-.971.972-.971h15.251c.536 0 .971.436.971.971v9.238z"></path><g fill="none" stroke="#999" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M67.86 30.84l2.32 13.791-20.547-7.897zM70.105 57.98H1.557V10.596"></path><path d="M7.84 10.596l17.718 17.633 22.307-6.5 12.042 11.478"></path></g><path fill="#999" d="M59.686 9.348c0 .02.009.035.011.055h2.143c.001-.02.011-.035.011-.055v-3.33a.623.623 0 0 0-.003-.061c-.004-.047-.226-4.191 5.204-4.191 4.463.143 4.756 3.143 4.756 4.465v3.117c0 .02.009.035.011.055h2.142c.002-.02.011-.035.011-.055V6.23c0-1.73-.852-6.16-6.375-6.16-.11 0-.189.004-.231.006-7.962 0-7.678 5.17-7.678 5.959v3.313z"></path></svg></div><div class="col-xs-6 align-left no-padding"><span class="number-interactive h5">'+value.Value+'</span></div></div></div>');
+			
+			console.log('My array has at position ' + index + ', this value: ' + value);
+		});
+		$("#divExtraValues").html(extravalues.join(""));
+		
+		var verticesC = [];
+		$.each(json["Leg"],function(index, value){
+			if(value.Side == 'C'){
+			verticesC.push('<span class="h6">'+value.Side+' '+value.Type+' '+value.Strike+'</span><br>');
+			};			
+		});
+		$("#divEstruturaCompra").html($("#divEstruturaCompra").html()+verticesC.join(""));
+		
+		var verticesV = [];
+		$.each(json["Leg"],function(index, value){
+			if(value.Side == 'V'){
+			verticesV.push('<span class="h6">'+value.Side+' '+value.Type+' '+value.Strike+'</span><br>');
+			};			
+		});
+		$("#divEstruturaVenda").html($("#divEstruturaVenda").html()+verticesV.join(""));
+		
+		if(json["IsIncomingIdea"] == "True"){
+			$("#divObjetivo").html(json["Objective"]); 
+			$("#divOperacao").html(json["Operation"]); 
+			$("#divMessgeAnalyst").html(json["MessageAnalyst"]); 
+		
+		} else
+		{
+			$("#divTradeIdea").hide();
+			$("#divObjective").hide();
+			$("#divObservation").removeClass("col-sm-6");
+			$("#divObservation").addClass("col-sm-12");
+		}
+		
+		
+		//$("#divObsInt").html($("#divObsInt").html()+"; Todos os Dados Carregados");
+	}
+	//UpdateValues("{\"OrderId\":9866,\"OperationId\":17593,\"InteractiveOperationId\":140,\"Account\":432184,\"Timestamp\":\"0001-01-01T00:00:00\",\"Title\":null,\"Status\":\"E\",\"ImagePath\":\"http://10.40.0.98:3001/1227478975_grafico.svg\",\"Local\":null,\"Author\":null,\"OrderLabel\":null,\"Text\":\"Nova_Notificação:  HashCode: 826B929E4C39099EB7C48472442588B4; orderId: 9866; operationId: 17593; interactiveOperationId: 140; account:432184\",\"OrderURL\":null,\"MaturityDate\":\"20171121\",\"MaxGain\":\"0\",\"ClientCost\":\"-.89\",\"Asset\":\"PETR4\",\"ClientName\":\"PAULO SIQUEIRA\",\"Quantity\":\"100\",\"ExtraValues\":[{\"Header\":\"Cen&aacute;rio de ganho acima de : \",\"Value\":\"16.43\",\"ImgType\":\"1\"},{\"Header\":\"Lucro m&aacute;ximo : \",\"Value\":\"Ilimitado\",\"ImgType\":\"1\"},{\"Header\":\"Perda m&aacute;xima : \",\"Value\":\"Premio da estrutura\",\"ImgType\":\"3\"}],\"Leg\":[{\"Symbol\":\"PETRK45\",\"Type\":\"Call Option\",\"Side\":\"C\",\"Ratio\":1.0,\"Strike\":15.5,\"OperationId\":\"\",\"LegId\":\"\",\"MaturityDate\":\"\",\"Moved\":false}]}");
+	
+
+</script> 
+</div></body></html>
