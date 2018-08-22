@@ -8,7 +8,22 @@
     <link rel="stylesheet" href="./InstitucionalCotizadorFrontMobile_files/vendor.css">
     <link rel="stylesheet" href="./InstitucionalCotizadorFrontMobile_files/institucional-cotizador-front-mobile.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	
+    <style>
+      .select-total b {
+        font-size: 11px;
+      }
+
+      .select-total .numeric {
+        height: 27px;
+        margin-top: 5px;
+        font-size: 11px;
+      }
+
+      .container-custodia {
+        height: 32px;
+        line-height: 33px;
+      }
+    </style>
   </head>
   <body class="ember-application">
 <div id="ember344" class="ember-view"><div class="container ip-container-background">
@@ -28,30 +43,24 @@
       </div>
     </div>
 
-    <div class="col col-xs-12 col-sm-6  ">
-
+    <div class="col col-xs-12 col-sm-6">
       <label class="ip-label-grid1 h5">Resumo</label><br>
-
         <div class="row row-eq-height">
           <div class="col-xs-4 bg-box-white">
-
-            <div id="divExtraValues" class="ip-container-col-term">
-
-
-            </div>
+            <div id="divExtraValues" class="ip-container-col-term"></div>
           </div>
 
           <div class="col-xs-8 bg-box-white margin-left-1">
-            <div class="bg-gray-dark color-white">
+            <div class="bg-gray-dark color-white select-total">
               <div class="">
                 <div class="row">
                   <div class="col-xs-12  col-sm-12">
                     <span class="h6"><b>Selecione o total de estruturas:</b></span>
                   </div>
-                  <div class="col-xs-4 col-sm-4 no-padding-right">
+                  <div class="col-xs-6 col-sm-4 no-padding-right">
                     <input type="number" onchange="changeQtd()" name="txtQtd" step="1" id="txtQtd" class="numeric ember-text-field ember-view">
                   </div>
-                  <div class="col-xs-8 col-sm-8">
+                  <div class="col-xs-6 col-sm-8 container-custodia">
                     <span class="h6" id="txtCustodia" name="txtCustodia"></span>
                   </div>
                 </div>
@@ -173,7 +182,7 @@
         document.location = "app://?state=" + state + "&edited=true&data=" + data;
     }
 	function changeQtd(){
-		var qtd = document.getElementById("txtQtd");
+    var qtd = document.getElementById("txtQtd");
 		$("#txtPrice").text(($("#txtGainMax").text() * qtd.value).toFixed(2));
 	}
 	function UpdateValues(values) {
@@ -187,14 +196,15 @@
 			console.log(data);
 			$("#divsvg").html(data);
 		  }
-		});		
+    });		
+    
 		//$("#divObsInt").html($("#divObsInt").html()+"; IMG: "+json["ImagePath"]);
 		$("#txtInteractiveOperationId").val(json["InteractiveOperationId"]);
 		$("#txtOperationId").val(json["OperationId"]);
 		$("#txtOrderId").val(json["OrderId"]);
 		$("#txtAccount").val(json["Account"]);
 		$("#txtReq").val(values);
-		$("#txtGainMax").text(json["ClientCost"]);
+		$("#txtGainMax").text(Number(json["ClientCost"]));
 		$("#txtAsset").text(json["Asset"]);
 		$("#txtVencimento").text(json["MaturityDate"]);
 		$("#divObs").html(json["Text"]); 
@@ -204,7 +214,7 @@
 		
 		var qtd = document.getElementById("txtQtd");
 		qtd.value = json["Quantity"];
-		$("#txtPrice").text(json["ClientCost"] * json["Quantity"]);
+    $("#txtPrice").text(Number(json["ClientCost"] * json["Quantity"]).toFixed(2));
 
 		//$("#divObsInt").html($("#divObsInt").html()+"; Carregando ExtraValues");
 		var extravalues = [];
@@ -247,7 +257,9 @@
 		
 		//$("#divObsInt").html($("#divObsInt").html()+"; Todos os Dados Carregados");
 	}
-	//UpdateValues("{\"OrderId\":9866,\"OperationId\":17593,\"InteractiveOperationId\":140,\"Account\":432184,\"Timestamp\":\"0001-01-01T00:00:00\",\"Title\":null,\"Status\":\"E\",\"ImagePath\":\"http://10.40.0.98:3001/1227478975_grafico.svg\",\"Local\":null,\"Author\":null,\"OrderLabel\":null,\"Text\":\"Nova_Notificação:  HashCode: 826B929E4C39099EB7C48472442588B4; orderId: 9866; operationId: 17593; interactiveOperationId: 140; account:432184\",\"OrderURL\":null,\"MaturityDate\":\"20171121\",\"MaxGain\":\"0\",\"ClientCost\":\"-.89\",\"Asset\":\"PETR4\",\"ClientName\":\"PAULO SIQUEIRA\",\"Quantity\":\"100\",\"ExtraValues\":[{\"Header\":\"Cen&aacute;rio de ganho acima de : \",\"Value\":\"16.43\",\"ImgType\":\"1\"},{\"Header\":\"Lucro m&aacute;ximo : \",\"Value\":\"Ilimitado\",\"ImgType\":\"1\"},{\"Header\":\"Perda m&aacute;xima : \",\"Value\":\"Premio da estrutura\",\"ImgType\":\"3\"}],\"Leg\":[{\"Symbol\":\"PETRK45\",\"Type\":\"Call Option\",\"Side\":\"C\",\"Ratio\":1.0,\"Strike\":15.5,\"OperationId\":\"\",\"LegId\":\"\",\"MaturityDate\":\"\",\"Moved\":false}]}");
+	// UpdateValues(
+  //   '{"OrderId":104265,"OperationId":203582,"InteractiveOperationId":80,"Account":432184,"Timestamp":"0001-01-01T00:00:00","Title":"FINANCIAMENTO DE ABEV3","Status":"E","ImagePath":"https://cotizador-services.xpi.com.br/grafico/1218489459_grafico.svg","Local":null,"Author":null,"OrderLabel":null,"Text":"O financiamento e uma das estrategias mais tradicionais do mercado de renda variavel, composta pela venda de uma Opcao de compra sobre um ativo em carteira, com a finalidade de otimizacao da carteira, protecao parcial contra quedas ou operacoes de taxa. O cliente recebe um premio pela venda da Call e limita o ganho do ativo ao nivel do preco de strike da Call (Opcao A).","OrderURL":null,"MaturityDate":"20180917","MaxGain":"0","ClientCost":".28","Asset":"ABEV3","ClientName":"PAULO JOSE DE MOURA SIQUEIRA","Quantity":"400","Custody":"0","IsIncomingIdea":"False","MessageAnalyst":"","Objective":"","Operation":"","ClientProfile":"Agressivo","PossuiImpedimentos":false,"ExtraValues":[{"Header":"Cen&aacute;rio de ganho acima de : ","Value":"19,26","ImgType":"1"},{"Header":"Lucro m&aacute;ximo por unidade: ","Value":"R$ 0,58","ImgType":"1"},{"Header":"Perda m&aacute;xima por unidade: ","Value":"R$ 18,68","ImgType":"3"}],"Leg":[{"Symbol":"ABEVI89","Type":"Call Option","Side":"V","Ratio":1.0,"Strike":19.26,"OperationId":"","LegId":"","MaturityDate":"","Moved":false,"Visible":false,"Percent":0.0},{"Symbol":"ABEV3","Type":"Stock","Side":"C","Ratio":1.0,"Strike":18.96,"OperationId":"","LegId":"","MaturityDate":"","Moved":false,"Visible":false,"Percent":0.0}]}'
+  // );
 	
 
 </script> 
